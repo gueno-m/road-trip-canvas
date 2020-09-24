@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="cloud.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Voyage sans fin</title>
+    <style>
+        BODY,
+        HTML,
+        CANVAS {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        section {
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background-image: url('fond.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        section h1 {
+            margin: auto;
+            padding: 30px;
+            font-size: 2.5rem;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 400;
+            border: solid 2px black;
+            border-radius: 10px;
+            transition: ease 1s ease;
+        }
+        
+        section h1 img {
+            margin: auto;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h1 class="titre">Press the button <img src="ps-logo.png" alt=""> to start the road trip</h1>
+    </section>
+
+    <canvas>
+        <img id="fond" src="fond.jpg" />
+
+        <img id="car" src="car.png" />
+
+    </canvas>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

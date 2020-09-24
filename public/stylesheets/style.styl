@@ -1,5 +1,108 @@
+html
+  padding:0px
+  margin: 0px
+
 body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-a
-  color: #00B7FF
+  padding:0px
+  margin: 0px
+  width: 100%
+  height: 100vh
+  font-family: 'Rubik', sans-serif
+
+.accueil
+  width: 100%
+  height: 100vh
+  display: flex
+  flex-direction: column
+  background-image: url('../fond.jpg')
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+
+.liste, .experiment
+  width: 100%
+  min-height: 100vh
+  background: linear-gradient(#028270, #b0ff73)
+  display: flex
+  flex-direction: column
+
+h1
+  margin: auto
+  margin-bottom: 0
+  font-size: 4rem
+
+.buttonsAccueil
+  color: black
+  padding: 20px
+  border: 2px solid black
+  margin: auto
+  font-size: 2rem
+  font-weight: 700 
+  border-radius: 10px
+  text-decoration: none
+  transition: all .2s ease
+
+  &:hover
+    color: white
+    background: black
+
+ul 
+  width 90%
+  min-height: 500px
+  margin: auto
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap 
+  list-style:none;
+
+li 
+  width auto
+  margin: auto
+  margin-right: 20px
+  margin-left: 20px
+  color: black
+
+li a
+  text-decoration none;
+  color: black
+  font-weight: 700 
+  border-bottom 2px solid black
+  margin: auto
+  margin-left 5px
+  transition all .3s ease
+
+  &:hover
+    color: #616161
+    border-bottom 2px solid #616161
+
+.back
+  margin: auto
+  margin-left 7%
+  text-decoration none;
+  color: black
+  font-size 2rem
+  font-weight: 700 
+  border: 2px solid black
+  font-weight: 700 
+  border-radius: 10px
+  padding: 10px
+  transition all .3s ease
+
+  &:hover
+    color: white
+    background: black
+
+.titre 
+  margin: auto
+  font-size: 3rem
+  font-weight: 700 
+
+img
+  margin: auto
+  width: 70%
+  border: solid 2px black
+  border-radius 10px
+
+.date
+  margin: auto
+  margin-left 7%

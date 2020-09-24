@@ -1,7 +1,110 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  padding: 0px;
+  margin: 0px;
 }
-a {
-  color: #00b7ff;
+body {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Rubik', sans-serif;
+}
+.accueil {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../fond.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.liste,
+.experiment {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(#028270, #b0ff73);
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  margin: auto;
+  margin-bottom: 0;
+  font-size: 4rem;
+}
+.buttonsAccueil {
+  color: #000;
+  padding: 20px;
+  border: 2px solid #000;
+  margin: auto;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.buttonsAccueil:hover {
+  color: #fff;
+  background: #000;
+}
+ul {
+  width: 90%;
+  min-height: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+li {
+  width: auto;
+  margin: auto;
+  margin-right: 20px;
+  margin-left: 20px;
+  color: #000;
+}
+li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  border-bottom: 2px solid #000;
+  margin: auto;
+  margin-left: 5px;
+  transition: all 0.3s ease;
+}
+li a:hover {
+  color: #616161;
+  border-bottom: 2px solid #616161;
+}
+.back {
+  margin: auto;
+  margin-left: 7%;
+  text-decoration: none;
+  color: #000;
+  font-size: 2rem;
+  font-weight: 700;
+  border: 2px solid #000;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+.back:hover {
+  color: #fff;
+  background: #000;
+}
+.titre {
+  margin: auto;
+  font-size: 3rem;
+  font-weight: 700;
+}
+img {
+  margin: auto;
+  width: 70%;
+  border: solid 2px #000;
+  border-radius: 10px;
+}
+.date {
+  margin: auto;
+  margin-left: 7%;
 }
