@@ -7,6 +7,7 @@ const ctx = canvas.getContext('2d');
 const fond = document.getElementById("fond");
 const car = document.getElementById("car");
 const moteur = new Audio('moteur.mp3')
+moteur.volume = 0.2
 const klaxon = new Audio('klaxon.mp3')
 const screen = new Audio('screen.mp3')
 
@@ -125,7 +126,7 @@ function animation() {
     ctx.beginPath();
     ctx.drawImage(crack, canvas.width / 2 + oCrack, horizon + ((time / 85 * distance) % (canvas.height - horizon)), 60, 28)
 
-    ctx.drawImage(tree, canvas.width / 2 + oTree, horizon + ((time / 150 * distance) % (canvas.height - horizon)), 150, 150)
+    ctx.drawImage(tree, canvas.width / 4 - oTree, horizon + ((time / 150 * distance) % (canvas.height - horizon)), 150, 150)
     ctx.fill()
 
     let value = navigator.getGamepads()[0].axes[2];
@@ -145,10 +146,10 @@ function animation() {
         isKlaxon = false
     }
 
-    for (let b = 0; b < 1; b++) {
+    for (let b = 0; b < 200; b++) {
 
         lengthC = 500;
-        distanceC = 15;
+        distanceC = 5;
         vC = ((time / 2 + b * distanceC) % (canvas.height - horizon));
 
         gC = horizon + vC;
@@ -160,23 +161,25 @@ function animation() {
             hC = canvas.height;
         }
 
-        let pDépart = { x: canvas.width / 2 + 100 + e, y: horizon + 3 };
-        let pContrôle1 = {
-            x: pDépart.x + e * 2,
-            y: horizon + 20 + e
-        };
-        let pContrôle2 = {
-            x: pDépart.x + e,
-            y: horizon + 20 + e
-        };
-        let pArrivée = { x: canvas.width / 2 + 400 + e, y: canvas.height - 2 };
+        let pDépart = { x: canvas.width / 2 + 80 + e, y: horizon + 3 };
+        let pArrivée = { x: canvas.width / 2 + 360 + e, y: canvas.height - 2 };
 
-        ctx.beginPath();
-        ctx.moveTo(pDépart.x, pDépart.y);
-        ctx.bezierCurveTo(pContrôle1.x, pContrôle1.y, pContrôle2.x, pContrôle2.y, pArrivée.x, pArrivée.y);
-        ctx.strokeStyle = '#7fdb71';
-        ctx.lineWidth = 2;
-        ctx.stroke();
+
+        let res = 100;
+        let disto = { x: 10, y: -10 }
+        let dep = { x: pDépart.x, y: pDépart.y }
+        for (let s = 1; s <= res; s++) {
+            ctx.beginPath();
+            ctx.moveTo(dep.x, dep.y);
+
+            let to = { x: dep.x + (pArrivée.x - pDépart.x) * s / res, y: dep.y + (pArrivée.y - pDépart.y) * s / res + noise.simplex2(dep.x * 0.001, -dep.y * 0.01 + time / 150) * 20 };
+            ctx.lineTo(to.x, to.y);
+            dep = to;
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "rgba(0,255,0,0.5)";
+            ctx.stroke();
+
+        }
     }
 
     if (navigator.getGamepads()[0].buttons[1].value == 1 && isScreen == false) {
@@ -189,6 +192,10 @@ function animation() {
     if (navigator.getGamepads()[0].buttons[1].value == 0 && isScreen == true) {
         isScreen = false
     }
+
+    //     ctx.font = "1.2rem Rubik, sans-serif";
+    //     ctx.fillStyle = "black";
+    //     ctx.fillText("Hello World", canvas.width / 2 + 600, horizon + 50);
 }
 
 window.addEventListener("gamepadconnected", (event) => {
